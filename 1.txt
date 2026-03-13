@@ -1,1 +1,2 @@
 awk BEGIN { FS=" "; OFS=" bytes for " } NF { print $1, $10 } access.log
+awk +$10 { Req[$1]+=$10 } END { for (IP in Req) print IP, Req[IP] } FS=  OFS= bytes for  access.log
